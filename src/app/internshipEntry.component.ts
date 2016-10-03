@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -24,7 +24,7 @@ import {InternshipValidators} from "./internship.validators";
                  [formControl]="internshipForm.controls['initials']"
                  class="form-control">
                  
-           <p *ngIf="!internshipForm.controls.initials.valid && internshipForm.controls.initials.touched" class="help-block">
+           <p *ngIf="invalidInitials()" class="help-block">
               Initials are invalid
            </p>
            
@@ -49,14 +49,33 @@ import {InternshipValidators} from "./internship.validators";
   </form>
   `
 })
-export class InternshipEntryComponent {
+export class InternshipEntryComponent implements OnInit {
   internshipForm: FormGroup;
 
-  constructor(fb: FormBuilder) {
-    this.internshipForm = fb.group( {
+  initialsVisible: Boolean = false; //for testing
+
+  ngOnInit() {
+    this.internshipForm = new FormGroup({});
+
+    this.internshipForm = this.fb.group( {
       'initials': ['', Validators.compose([
         Validators.required, InternshipValidators.getInitialsValidator()])]
     })
+  }
+
+
+
+  constructor(private fb: FormBuilder) {
+
+  }
+
+  public invalidInitials() : Boolean {
+
+    if (!this.internshipForm.controls['initials'].valid && this.internshipForm.controls['initials'].touched
+      || this.initialsVisible) {
+      return true;
+    }
+    return false;
   }
 
   public onSubmit(form) {
