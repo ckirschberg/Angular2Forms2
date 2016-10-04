@@ -24,7 +24,8 @@ import {InternshipValidators} from "./internship.validators";
                  [formControl]="internshipForm.controls['initials']"
                  class="form-control">
                  
-           <p *ngIf="!internshipForm.controls.initials.valid && internshipForm.controls.initials.touched" class="help-block">
+           <p *ngIf="!internshipForm.controls.initials.valid"
+              class="help-block">
               Initials are invalid
            </p>
            
@@ -49,17 +50,22 @@ import {InternshipValidators} from "./internship.validators";
   </form>
   `
 })
-export class InternshipEntryComponent{
-  internshipForm: FormGroup;
+export class InternshipEntryComponent implements OnInit {
+    internshipForm: FormGroup;
+
+
+    ngOnInit():void {
+        this.internshipForm = this.fb.group( {
+            'initials': ['', Validators.compose([
+                Validators.required, InternshipValidators.getInitialsValidator()])]
+        })
+    }
 
 
 
 
-  constructor(fb: FormBuilder) {
-    this.internshipForm = fb.group( {
-      'initials': ['', Validators.compose([
-        Validators.required, InternshipValidators.getInitialsValidator()])]
-    })
+  constructor(private fb: FormBuilder) {
+
   }
 
   public invalidInitials() : Boolean {
