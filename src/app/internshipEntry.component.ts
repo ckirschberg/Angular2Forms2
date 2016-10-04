@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
@@ -49,14 +49,25 @@ import {InternshipValidators} from "./internship.validators";
   </form>
   `
 })
-export class InternshipEntryComponent {
+export class InternshipEntryComponent{
   internshipForm: FormGroup;
 
+
+
+
   constructor(fb: FormBuilder) {
-    this.internshipForm = fb.group( {
+    this.internshipForm = this.fb.group( {
       'initials': ['', Validators.compose([
         Validators.required, InternshipValidators.getInitialsValidator()])]
     })
+  }
+
+  public invalidInitials() : Boolean {
+
+    if (!this.internshipForm.controls['initials'].valid && this.internshipForm.controls['initials'].touched) {
+      return true;
+    }
+    return false;
   }
 
   public onSubmit(form) {
