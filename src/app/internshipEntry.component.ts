@@ -56,7 +56,7 @@ export class InternshipEntryComponent{
 
 
   constructor(fb: FormBuilder) {
-    this.internshipForm = this.fb.group( {
+    this.internshipForm = fb.group( {
       'initials': ['', Validators.compose([
         Validators.required, InternshipValidators.getInitialsValidator()])]
     })

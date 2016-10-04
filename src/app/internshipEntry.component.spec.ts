@@ -32,14 +32,4 @@ describe('InternshipEntryComponent', () => {
     input = fixture.debugElement.query(By.css("input")).nativeElement;
     el = fixture.debugElement.nativeElement; //the component. (Beware of *ngIf invisible elements)
   });
-
-  // it('should display error message - initials', () => {
-  //   input.value = '';
-  //   fixture.detectChanges();
-  //
-  //   let msgs = el.querySelectorAll('p.help-block');
-  //
-  //   expect(msgs[0].innerHTML).toContain('Initials are invalid');
-  // });
-
 });
