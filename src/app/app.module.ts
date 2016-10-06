@@ -8,6 +8,7 @@ import {InternshipEntryComponent} from "./internshipEntry.component";
 import {routing} from "./app-routing.module";
 import {AboutComponent} from "./about.component";
 import {InternshipsComponent} from "./internships.component";
+import {InternshipsService} from "./internships.service";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import {InternshipsComponent} from "./internships.component";
     ReactiveFormsModule, //I added this.
     routing
   ],
-  providers: [],
+  providers: [InternshipsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,6 +5,8 @@ import {
   Validators, FormControl
 } from '@angular/forms';
 import {InternshipValidators} from "./internship.validators";
+import { ActivatedRoute, Params } from '@angular/router';
+import {InternshipsService} from "./internships.service";
 
 @Component({
   selector: 'internship-entry',
@@ -52,9 +54,15 @@ import {InternshipValidators} from "./internship.validators";
 })
 export class InternshipEntryComponent implements OnInit {
     internshipForm: FormGroup;
-
+    selectedInternship: any;
 
     ngOnInit():void {
+        this.route.params.forEach((params: Params) => {
+            let id = +params['id'];
+            this.selectedInternship = this.internshipsService.getInternship(id);
+            console.log(this.selectedInternship);
+        });
+
         this.internshipForm = this.fb.group( {
             'initials': ['', Validators.compose([
                 Validators.required, InternshipValidators.getInitialsValidator()])]
@@ -64,7 +72,7 @@ export class InternshipEntryComponent implements OnInit {
 
 
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private route: ActivatedRoute, private internshipsService: InternshipsService) {
 
   }
 

@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {InternshipsService} from "./internships.service";
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'internships',
@@ -19,7 +20,14 @@ export class InternshipsComponent implements OnInit {
     ngOnInit():void {
         this.internships = this.internshipsService.getAllInternships();
     }
-    constructor(private internshipsService: InternshipsService) {
+    constructor(private internshipsService: InternshipsService,
+                private router: Router) {
 
     }
+
+    gotoInternship(internship: any): void {
+        let link = ['/internship', internship._id];
+        this.router.navigate(link);
+    }
+
 }
