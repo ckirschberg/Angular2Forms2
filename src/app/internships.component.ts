@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
     selector: 'internships',
     template: `
 
-    <div *ngFor="let internship of internships">
+    <div *ngFor="let internship of internships" (click)="gotoInternship(internship)">
         {{internship.initials}}
     </div>
 

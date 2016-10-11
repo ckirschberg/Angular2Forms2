@@ -24,7 +24,7 @@ import {InternshipsService} from "./internships.service";
                  id="initials"
                  placeholder="Initials"
                  [formControl]="internshipForm.controls['initials']"
-                 class="form-control">
+                 class="form-control" value="{{selectedInternship?.initials}}">
                  
            <p *ngIf="!internshipForm.controls.initials.valid"
               class="help-block">
