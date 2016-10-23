@@ -10,6 +10,8 @@ import {HomeComponent} from "./home.component";
 import {AboutComponent} from "./about.component";
 import {InternshipsComponent} from "./internships.component";
 import {InternshipsService} from "./internships.service";
+import {AComponent} from "./a.component";
+import {BComponent} from "./b.component";
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import {InternshipsService} from "./internships.service";
     InternshipEntryComponent,
     HomeComponent,
     AboutComponent,
-    InternshipsComponent
+    InternshipsComponent,
+    AComponent,
+    BComponent
   ],
   imports: [
     BrowserModule,

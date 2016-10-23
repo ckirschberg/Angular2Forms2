@@ -10,6 +10,11 @@ import {Router} from "@angular/router";
 <div *ngFor="let internship of internships" (click)="gotoInternship(internship)">
   {{internship.initials}}
 </div>
+
+
+<button routerLink="a">A</button>
+<button routerLink="b">B</button>
+<router-outlet></router-outlet>
 `
 })
 export class InternshipsComponent implements OnInit {

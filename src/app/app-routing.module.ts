@@ -4,6 +4,8 @@ import {InternshipEntryComponent} from "./internshipEntry.component";
 import {InternshipsComponent} from "./internships.component";
 import {AboutComponent} from "./about.component";
 import {HomeComponent} from "./home.component";
+import {BComponent} from "./b.component";
+import {AComponent} from "./a.component";
 
 const routes: Routes = [
   {
@@ -21,7 +23,20 @@ const routes: Routes = [
   },
   {
     path: 'internships',
-    component: InternshipsComponent
+    component: InternshipsComponent,
+    children: [
+        {
+          path: '',
+        },
+        {
+          path: 'a',
+          component: AComponent
+        },
+        {
+          path: 'b',
+          component: BComponent
+        }
+      ]
   },
   {
     path: 'internship',
