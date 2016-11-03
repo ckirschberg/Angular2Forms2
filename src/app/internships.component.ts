@@ -10,7 +10,12 @@ import { Router } from '@angular/router';
         {{internship.initials}}
     </div>
 
+    <button routerLink="a">Goto A component</button>
+    <button routerLink="b">Goto B component</button>
+
     <button routerLink="/internship">Create new internship</button>
+
+    <router-outlet></router-outlet>
     `
 })
 

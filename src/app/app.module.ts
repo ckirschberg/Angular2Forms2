@@ -9,13 +9,17 @@ import {routing} from "./app-routing.module";
 import {AboutComponent} from "./about.component";
 import {InternshipsComponent} from "./internships.component";
 import {InternshipsService} from "./internships.service";
+import {AComponent} from "./a.component";
+import {BComponent} from "./b.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     InternshipEntryComponent, //I added this.
     AboutComponent,
-    InternshipsComponent
+    InternshipsComponent,
+    AComponent,
+    BComponent
   ],
   imports: [
     BrowserModule,
