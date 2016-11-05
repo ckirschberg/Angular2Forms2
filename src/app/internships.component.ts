@@ -28,10 +28,17 @@ export class InternshipsComponent implements OnInit {
     constructor(private internshipsService: InternshipsService,
                 private router: Router) {
 
-  
-  gotoInternship(internship: any): void {
-    let link = ['/internship', internship._id];
-    this.router.navigate(link);
-  }   }
 
+    }
+
+
+  gotoInternship(internship: any): void {
+
+    if (valid()) {
+      let link = ['/internship', internship._id];
+      this.router.navigate(link);
+    } else {
+      "display errors"
+    }
+  }
 }
