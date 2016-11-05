@@ -13,9 +13,9 @@ import { Router } from '@angular/router';
     <button routerLink="a">Goto A component</button>
     <button routerLink="b">Goto B component</button>
 
-    <button routerLink="/internship">Create new internship</button>
+    <button routerLink="/internship">Create new internship</but
 
-    <router-outlet></router-outlet>
+    <router-outlet></router-outlet>ton>
     `
 })
 
@@ -28,11 +28,10 @@ export class InternshipsComponent implements OnInit {
     constructor(private internshipsService: InternshipsService,
                 private router: Router) {
 
-    }
-
-    gotoInternship(internship: any): void {
-        let link = ['/internship', internship._id];
-        this.router.navigate(link);
-    }
+  
+  gotoInternship(internship: any): void {
+    let link = ['/internship', internship._id];
+    this.router.navigate(link);
+  }   }
 
 }
