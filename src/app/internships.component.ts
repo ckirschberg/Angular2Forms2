@@ -34,11 +34,9 @@ export class InternshipsComponent implements OnInit {
 
   gotoInternship(internship: any): void {
 
-    if (valid()) {
+
       let link = ['/internship', internship._id];
       this.router.navigate(link);
-    } else {
-      "display errors"
-    }
+    
   }
 }
