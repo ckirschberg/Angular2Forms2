@@ -13,17 +13,21 @@ import { Router } from '@angular/router';
     <button routerLink="a">Goto A component</button>
     <button routerLink="b">Goto B component</button>
 
-    <button routerLink="/internship">Create new internship</but
+    <button routerLink="/internship">Create new internship</button>
 
-    <router-outlet></router-outlet>ton>
+    <router-outlet></router-outlet>
     `
 })
 
 export class InternshipsComponent implements OnInit {
     private internships: any[] = [];
+    private errorMessage: string = "";
 
     ngOnInit():void {
-        this.internships = this.internshipsService.getAllInternships();
+        this.internshipsService.getAllInternships().subscribe(
+          internships => this.internships = internships,
+          error => this.errorMessage = error
+        );
     }
     constructor(private internshipsService: InternshipsService,
                 private router: Router) {
@@ -37,6 +41,6 @@ export class InternshipsComponent implements OnInit {
 
       let link = ['/internship', internship._id];
       this.router.navigate(link);
-    
+
   }
 }
