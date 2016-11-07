@@ -19,14 +19,20 @@ import {Router} from "@angular/router";
 })
 export class InternshipsComponent implements OnInit {
   private internships: any[] = [];
+  private errorMessage: string = ""; //new
 
   constructor(private internshipsService: InternshipsService,
               private router: Router) {
 
+
   }
 
   ngOnInit():void {
-    this.internships = this.internshipsService.getInternships();
+    //new
+    this.internshipsService.getInternships()
+      .subscribe(
+        internships => this.internships = internships,
+        error =>  this.errorMessage = <any>error);
   }
 
   gotoInternship(internship: any) {
