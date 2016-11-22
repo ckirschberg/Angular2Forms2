@@ -11,6 +11,7 @@ import {InternshipsComponent} from "./internships.component";
 import {InternshipsService} from "./internships.service";
 import {AComponent} from "./a.component";
 import {BComponent} from "./b.component";
+import {FilterInternships} from "./filter-internships.pipe";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {BComponent} from "./b.component";
     AboutComponent,
     InternshipsComponent,
     AComponent,
-    BComponent
+    BComponent,
+    FilterInternships
   ],
   imports: [
     BrowserModule,

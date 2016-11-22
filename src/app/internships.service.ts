@@ -16,7 +16,7 @@ export class InternshipsService {
 
     //I want a method that returns the internships
     public getAllInternships(): Observable<any[]> {
-        return this.http.get("http://angularkea1.azurewebsites.net/api/internships/getall")
+        return this.http.get("http://angular2api1.azurewebsites.net/api/internships/getall")
           .map(this.extractData)
           .catch(this.handleError);
     }
@@ -33,6 +33,7 @@ export class InternshipsService {
     }
 
     public getInternship(id: number): any {
+
         //return this.getAllInternships().find(internship => internship._id === id);
       return {};
     }
